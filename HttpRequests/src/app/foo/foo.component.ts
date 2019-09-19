@@ -34,5 +34,19 @@ export class FooComponent {
           this.loading = false;
         });
    }
+   makeCompactPost() : void {
+     this.loading = true;
+     this.http
+       .post('https://jsnplaceholder.typicode.com/posts',
+        JSON.stringify({
+         body: 'bar',
+         title: 'foo',
+         userId :1
+        }))
+        .subscribe(data => {
+          this.data = data;
+          this.loading = false;
+        });
+   }
 
 }
